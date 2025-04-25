@@ -1,8 +1,82 @@
+/* Navigation bar Styling */
+
+header {
+    background: var(--primary-color);
+}
+
 .navbar .nav-logo .logo-text{
     color: black;
+    font-size:larger;
+    font-weight:bolder;
+}
+
+.navbar .nav-menu {
+    display: flex;
+    gap: 10px;
+}
+
+header .navbar {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .navbar .nav-menu .nav-link {
+    padding: 10px 18px;
+    font-size:large;
+    background: var(--secondary-color);
+    border-radius: var(--border-radius-m);
+    transition: 0.3s ease;
 color: black;
 }
 
+.navbar .nav-menu .nav-link:hover {
+    color: rgb(255, 255, 255);
+    background: black
+}
+
+.hero-section {
+    min-height: 100vh;
+    background: var(--primary-color);
+}
+
+.hero-section .section-content {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    color: black;
+    justify-content: space-between;
+}
+
+.hero-section .hero-details .title{
+    font-size:xx-large;
+    color: rgb(80, 78, 30);
+    font-family: "Miniver", sans-serif;
+}
+
+/* Styling for the whole site */
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+img{
+    width: 100%;
+}
+
+.section-content {
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: var(--site-max-width);
+}
