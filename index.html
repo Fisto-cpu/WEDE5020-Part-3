@@ -4,52 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cookiefy</title>
+    <!--Link to external CSS file-->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!--Header  / Navigation Bar-->
+
+    <!--Header section with site title and navigation-->
     <header>
-        <nav class="navbar section-content">
-            <a href="#" class="nav-logo">
-                <h2 class="logo-text">🥯 Cookiefy</h2>
-            </a>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Shop Menu</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Baking Tips</a>
-            </li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1>Cookiefy</h1>
+            <nav>
+                <ul>
+                    <li><a class="nav-btn" href="#home">Home</a></li>
+                    <li><a class="nav-btn" href="#shop">Shop</a></li>
+                    <li><a class="nav-btn" href="#about">About Us</a></li>
+                    <li><a class="nav-btn" href="#tips">Baking Tips</a></li>
+                    <li><a class="nav-btn" href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <!--Hero Section-->
-        <section class="hero-section">
-            <div class="section-content">
-                <div class="hero-details">
-                    <h2 class="title">Best Cookies</h2>
-                    <h3 class="subtitle">Make your day great with our special cookies!</h3>
-                    <p class="description">Welcome to our cookie paradise, where every dough tells a story and every cookie sparks joy.</p>
-                    <div class="buttons">
-                        <a href="#" class="button order-now">Order Now</a>
-                        <a href="#" class="button contact-us">Contact Us</a>
-                    </div>
-                </div>
-            </div class="hero-image-wrapper">
-            <img src="images/PICSCOOKIES.png" alt="Hero" class="hero-image">
-        </section>
-    </main>
+    <!--Hero Section with background image and tagline-->
+    <section class="hero">
+        <div class="container">
+            <h2>Delicious Cookies, Baked with love</h2>
+            <p>Handcrafted treats made fresh to order</p>
+        </div>
+    </section>
+
+    <!--Shop section displaying cookie products-->
+    <section id="shop" class="section shop-section">
+        <div class="container">
+        <h2>Our shop</h2>
+        <div class="grid fade-in">
+            <div class="card">
+                <img src="images/Chocolate.jpg" alt="Chocolate Chip Cookie">
+                <h3>Chocolate Chip</h3>
+                <p>Classic goodness in every bite</p>
+            </div>
+            <div class="card">
+            <img src="images/oatmeal.jpg" alt="Oatmeal Cookie">
+            <h3>Oatmeal Raisin</h3>
+            <p>Wholesome and hearty delight</p>
+        </div>
+        <div class="card">
+        <img src="images/download.jfif" alt="Peanut Butter Cookie">
+        <h3>Peanut Butter</h3>
+        <p>Rich, nutty and unforgettable</p>
+    </div>
+    </div>
+</div>
+    </section>
+
+    <!--About Us section-->
+    <section id="about" class="section">
+        <div class="container">
+        <h2>About Us</h2>
+        <h3>Our Story</h3>
+        <br>
+        <p>Cookiefy started with an ambition of baking and bringing delivering smiles to people's faces. We strongly believe that every cookie should be made with the best ingridients and loaded with cheer.</p>
+        <br>
+        <h3>Our Mission</h3>
+        <br>
+        <p>We are commited to creating the best cookies that bring warmth and hapiness to our customers.</p>
+        <br>
+        <h3>Why Choose Us?</h3>
+        <br>
+        <ul>
+            <li>Made with love and care</li>
+            <li>High quality ingridients</li>
+            <li>One of a kind and delicious flavors</li>
+            <li>Freshly baked everyday</li>
+        </ul>
+    </div>
+    </section>
+    
+    <!--Baking Tips section-->
+    <section id="tips" class="section">
+        <div class="container">
+        <h2>Baking Tips</h2>
+        <h3>1.Butter your cream.</h3>
+        <p>When creaming the butter, add air to the mix, which will help your cookies to puff up and rise when heated in the oven.</p>
+        <br>
+        <h3>2.Select the correct pan liner</h3>
+        <p>The pan and liner you utilize affects the visual and feel of your cookies.</p>
+        <br>
+        <h3>3.Insert one egg at once</h3>
+        <p></p>Add eggs slowly into the butter to inhibit the butter from breaking.</p>
+        <br>
+        <h3>4.Take measures with caution</h3>
+        <p>Mismeasuring your ingridients might lead to a disaster.</p>
+
+    </div>
+</section>
+
+<!--Contact Us section-->
+<section id="contact" class="section">
+    <div class="container">
+        <h2>Contact Us</h2>
+        <p>Email: hello@cookiefy.com</p>
+        <p>Phone: 01987473937</p>
+        <p>Adress: 123 Cookie lane, Sweet City</p>
+    </div>
+</section>
+
+<!--Footer with copyright-->
+<footer>
+    <div class="container">
+        <p>&copy; 2025 Cookiefy. All rights reserved</p>
+    </div>
+</footer>
 </body>
 </html>
