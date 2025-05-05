@@ -10,3 +10,5 @@ Admin,2023.Peanut Butter Cookie Recipes.Available at <https://www.crazyforcrust.
 **Baking Tips References:**
 
 Baking Kneads,2024.12 Must-Know Tips For Baking Perfect Cookies[online] Available at:<https://www.bakingkneads.com/tips-for-baking-perfect-cookies/>[Accessed 5 April 2025].
+
+**Screenshots of my web pages are in the images folder**
