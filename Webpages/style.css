@@ -223,3 +223,21 @@ h2::after {
     margin: 10px auto 0;
     border-radius: 2px;
 }
+
+/* Screen Fix for Desktops */
+body {
+    font-size: 18px;
+}
+
+/* Screen Fix for phones */
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .nav {
+        flex-direction: column;
+    }
+}
