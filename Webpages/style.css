@@ -8,9 +8,9 @@
 }
 
 body {
-    line-height: 1.6;
-    background-color: white;
-    color: #333;
+    background-color: #fdfaf6; /* Clean off-white dessert vibe */
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 .container {
@@ -50,7 +50,6 @@ nav ul {
     text-decoration: none;
     font-weight: bold;
     position: relative;
-    border: 2px solid transparent;
     padding: 8px 14px;
     border-radius: 8px;
     transition:all 0.3s ease;
@@ -60,21 +59,19 @@ nav ul {
     content: '';
     position: absolute;
     bottom: 5px;
-    left: 50%;
-    transform: translateY(-50%);
+    left: 0;
     height: 2px;
-    width: 0%;
+    width: 0;
     background-color: white;
     transition: width 0.4s ease;
 }
 
 .nav-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    boarder-color: white;
+    border-color: white;
 }
 
 .nav-btn:hover::after {
-    width: 22%;
+    width: 100%; 
 }
 
 /* Hero Section */
@@ -177,8 +174,18 @@ footer {
     background-color: #8b4513;
     color: white;
     text-align: center;
-    padding: 20px 0;
+    padding: 15px 0;
     margin-top: 40px;
+    font-size: 0.9rem;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2); 
+    position: relative;
+    z-index: 10;
+}
+
+footer .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
 }
 
 /* Responsive alignments */
@@ -241,3 +248,115 @@ body {
         flex-direction: column;
     }
 }
+
+/* Dark mode main background and text */
+.dark-mode {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+/* Ensure container sections switch too */
+.dark-mode .container,
+.dark-mode .section {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+/* Header and footer in dark mode */
+.dark-mode header,
+.dark-mode footer {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+}
+
+/* Cards (Shop) */
+.dark-mode .card {
+    background-color: #1f1f1f;
+    color: #f5f5f5;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* Hero section */
+.dark-mode .hero.no-image {
+    background: linear-gradient(135deg, #1e1e1e, #333);
+}
+
+/* CTA button style in dark mode */
+.dark-mode .cta-btn {
+    background-color: #f5f5f5;
+    color: #1e1e1e;
+}
+
+/* Navigation links */
+.dark-mode .nav-btn {
+    color: #f5f5f5;
+}
+
+.dark-mode .nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Toggle Button Styles */
+.toggle-wrapper {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    z-index: 1000;
+  }
+  
+  .toggle-label {
+    background-color: #ccc;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    height: 30px;
+    width: 60px;
+    position: relative;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggle-ball {
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    height: 24px;
+    width: 24px;
+    transition: transform 0.3s ease;
+  }
+  
+  #theme-toggle:checked + .toggle-label {
+    background-color: #222;
+  }
+  
+  #theme-toggle:checked + .toggle-label .toggle-ball {
+    transform: translateX(30px);
+  }
+
+  #cookie-fact {
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  #fact-display {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    color: #5a3e2b;
+    transition: all 0.3s ease;
+  }
+  
+  #fact-btn {
+    background-color: #8b4513;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #fact-btn:hover {
+    background-color: #a0522d;
+  }
