@@ -76,38 +76,3 @@ setTimeout(() => {
     welcomeMsg.remove();
 }, 7200);
 
-const cookieFacts = [
-    "Chocolate chip cookies were invented by accident in 1938.",
-    "The average American eats 35,000 cookies in a lifetime!",
-    "Cookies were originally test cakes for ovens.",
-    "In America, December 4th is National Cookie Day.",
-    "The world's biggest cookie weighed over 18 tons!",
-    "Fortune cookies aren't actually Chinese—they're American!",
-    "Oreo is the best-selling cookie brand in the world.",
-    "The first cookies were made in Persia in the 7th century.",
-    "The word 'cookie' comes from the Dutch word 'koekje,' meaning 'little cake.'",
-    "Cookie Monster's real name is Sid!",
-    "The first known cookie recipe appeared in 1730 in America.",
-    "Macarons and macaroons are totally different cookies.",
-    "Snickerdoodle is a real cookie, not a made-up name.",
-    "Gingerbread cookies date back to the 15th century.",
-    "Thin Mints are the most popular Girl Scout cookie.",
-    "Cookie dough ice cream was invented in 1984.",
-    "The biggest cookie jar collection contains over 2,000 jars.",
-    "Cookies bake faster on darker pans.",
-    "Baking soda makes cookies spread more than baking powder.",
-    "Cookies were one of the first foods baked in space."
-  ];
-  function showRandomFact() {
-    const factDisplay = document.getElementById('fact-display');
-    const randomIndex = Math.floor(Math.random() * cookieFacts.length);
-    factDisplay.textContent = cookieFacts[randomIndex];
-  }
-  
-  // Attach event listener once the page loads
-  window.addEventListener('DOMContentLoaded', () => {
-    const factBtn = document.getElementById('fact-btn');
-    if (factBtn) {
-      factBtn.addEventListener('click', showRandomFact);
-    }
-  });

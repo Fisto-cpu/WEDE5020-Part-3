@@ -334,29 +334,54 @@ body {
     transform: translateX(30px);
   }
 
-  #cookie-fact {
-    text-align: center;
-    margin-top: 40px;
+  #cookieSlider {
+    position: fixed;
+    top: 100px;
+    left: -250px;
+    width: 250px;
+    height: auto;
+    background-color: #fff8f0;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
+    transition: left 0.3s ease;
+    border-radius: 0 10px 10px 0;
+    z-index: 999;
   }
   
-  #fact-display {
-    font-size: 1.2rem;
-    margin: 20px 0;
+  #cookieSlider.open {
+    left: 0;
+  }
+  
+  #cookieFacts {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  #factText {
+    margin-bottom: 15px;
+    font-size: 14px;
     color: #5a3e2b;
-    transition: all 0.3s ease;
   }
   
-  #fact-btn {
-    background-color: #8b4513;
+  #cookieFacts button {
+    padding: 6px 12px;
+    background-color: #f9b06a;
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-weight: bold;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
   }
   
-  #fact-btn:hover {
-    background-color: #a0522d;
+  #toggleBtn {
+    position: absolute;
+    top: 40%;
+    right: -30px;
+    background-color: #f7d7a8;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
   }
