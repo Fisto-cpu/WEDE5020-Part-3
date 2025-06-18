@@ -76,3 +76,50 @@ setTimeout(() => {
     welcomeMsg.remove();
 }, 7200);
 
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("assistant-form");
+    const input = document.getElementById("assistant-input");
+    const chatbox = document.getElementById("chatbox");
+  
+    const answers = {
+      "baking soda": "Use 3x the amount of baking powder or use self-raising flour.",
+      "flat cookies": "Try chilling your dough and reducing butter slightly.",
+      "dry cake": "Overbaked or too much flour. Add a bit of yogurt or syrup.",
+      "egg substitute": "Use mashed banana, applesauce, or chia seeds with water.",
+      "soft cookies": "Shorter bake time and brown sugar = softer cookies.",
+      "burnt edges": "Lower the oven rack or reduce baking time.",
+      "runny batter": "Add a bit more flour or chill your dough.",
+      "cookies too hard": "Bake a little less or add more brown sugar.",
+      "oven not hot": "Always preheat 10–15 min before baking!",
+      "no butter": "Try using oil, coconut oil or mashed fruit."
+    };
+  
+    const getResponse = (question) => {
+      const q = question.toLowerCase();
+      for (let keyword in answers) {
+        if (q.includes(keyword)) {
+          return answers[keyword];
+        }
+      }
+      return "I'm not sure about that yet — try asking a different baking question! 🍪";
+    };
+  
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+  
+      const userMsg = input.value.trim();
+      if (!userMsg) return;
+  
+      // Add user's message
+      chatbox.innerHTML += `<div class="chat-message user">${userMsg}</div>`;
+  
+      // Bot response
+      const reply = getResponse(userMsg);
+      setTimeout(() => {
+        chatbox.innerHTML += `<div class="chat-message bot">${reply}</div>`;
+        chatbox.scrollTop = chatbox.scrollHeight;
+      }, 400);
+  
+      input.value = "";
+    });
+  });
