@@ -76,50 +76,34 @@ setTimeout(() => {
     welcomeMsg.remove();
 }, 7200);
 
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("assistant-form");
-    const input = document.getElementById("assistant-input");
-    const chatbox = document.getElementById("chatbox");
-  
-    const answers = {
-      "baking soda": "Use 3x the amount of baking powder or use self-raising flour.",
-      "flat cookies": "Try chilling your dough and reducing butter slightly.",
-      "dry cake": "Overbaked or too much flour. Add a bit of yogurt or syrup.",
-      "egg substitute": "Use mashed banana, applesauce, or chia seeds with water.",
-      "soft cookies": "Shorter bake time and brown sugar = softer cookies.",
-      "burnt edges": "Lower the oven rack or reduce baking time.",
-      "runny batter": "Add a bit more flour or chill your dough.",
-      "cookies too hard": "Bake a little less or add more brown sugar.",
-      "oven not hot": "Always preheat 10–15 min before baking!",
-      "no butter": "Try using oil, coconut oil or mashed fruit."
-    };
-  
-    const getResponse = (question) => {
-      const q = question.toLowerCase();
-      for (let keyword in answers) {
-        if (q.includes(keyword)) {
-          return answers[keyword];
-        }
-      }
-      return "I'm not sure about that yet — try asking a different baking question! 🍪";
-    };
-  
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-  
-      const userMsg = input.value.trim();
-      if (!userMsg) return;
-  
-      // Add user's message
-      chatbox.innerHTML += `<div class="chat-message user">${userMsg}</div>`;
-  
-      // Bot response
-      const reply = getResponse(userMsg);
-      setTimeout(() => {
-        chatbox.innerHTML += `<div class="chat-message bot">${reply}</div>`;
-        chatbox.scrollTop = chatbox.scrollHeight;
-      }, 400);
-  
-      input.value = "";
-    });
+const inputs = document.querySelectorAll('input[type="text"]');
+
+// Prevent numbers from being typed
+inputs.forEach(input => {
+  input.addEventListener('input', (e) => {
+    // Replace any digits with an empty string
+    e.target.value = e.target.value.replace(/[0-9]/g, '');
+    
+    // Add or remove active class
+    if (e.target.value.trim() !== "") {
+      input.classList.add('active-input');
+    } else {
+      input.classList.remove('active-input');
+    }
   });
+});
+
+// Submit button functionality
+document.getElementById('myForm').addEventListener('submit', function(e) {
+  e.preventDefault(); // Prevent page reload
+  const fname = document.getElementById('fname').value.trim();
+  const lname = document.getElementById('lname').value.trim();
+
+  if (fname === "" || lname === "") {
+    alert("Please fill in both names.");
+  } else {
+    alert(`Form submitted!\nFirst name: ${fname}\nLast name: ${lname}`);
+    this.reset(); // Optional: reset form after submission
+    inputs.forEach(input => input.classList.remove('active-input'));
+  }
+});

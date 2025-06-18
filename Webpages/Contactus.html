@@ -1,39 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=|, initial-scale=1.0">
-    <title>Contact Us</title>
-    <!--Link to external CSS file-->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!--Contact Us section-->
-<section id="contact" class="section">
-    <div class="container">
-        <h2>Contact Us</h2>
-        <p>We would love to hear from you, Contact us using the details below.</p>
-        <br>
-        <h3>Our Location</h3>
-        <p>123 Tumi Street, Faone Town , St 7628</p>
-        <br>
-        <h3>Phone Numbers</h3>
-        <p>Main: (+27) 76 183 7368</p>
-        <p>Support: (+27) 71 928 0298</p>
-        <br>
-        <h3>Email</h3>
-        <p>General Inquiries: info@cookiefy.com</p>
-    </div>
-</section>
 
-<!--Footer with copyright-->
-<footer>
+  <!-- Contact Form -->
+  <h2>Text input fields</h2>
+
+  <form id="myForm">
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" placeholder="Enter first name"><br>
+
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname" placeholder="Enter last name"><br>
+
+    <button type="submit" id="submitBtn">Submit</button>
+  </form>
+
+  <p>Note that the form itself is not visible.</p>
+  <p>Also note that the default width of text input fields is 20 characters.</p>
+
+  <!-- Contact Info Section -->
+  <section id="contact" class="section">
     <div class="container">
-        <p>&copy; 2025 Cookiefy. All rights reserved</p>
+      <h2>Contact Us</h2>
+      <p>We would love to hear from you. Contact us using the details below.</p>
+      <br>
+      <h3>Our Location</h3>
+      <p>123 Tumi Street, Faone Town, St 7628</p>
+      <br>
+      <h3>Phone Numbers</h3>
+      <p>Main: (+27) 76 183 7368</p>
+      <p>Support: (+27) 71 928 0298</p>
+      <br>
+      <h3>Email</h3>
+      <p>General Inquiries: info@cookiefy.com</p>
     </div>
-</footer>
-<script src="script.js"></script>
-</body>
-</html>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Cookiefy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Link to JS -->
+  <script src="script.js"></script>
 </body>
 </html>
