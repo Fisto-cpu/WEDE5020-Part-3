@@ -1,22 +1,24 @@
+// ==== Script Loaded Indicator ====
 console.log("Script loaded");
 
-document.querySelector('.cta-btn').addEventListener('click', () => {
-    alert('Welcome to Cookiefy Shop!');
-  });
+// ==== CTA Button Alert ====
+const ctaBtn = document.querySelector('.cta-btn');
+if (ctaBtn) {
+    ctaBtn.addEventListener('click', () => {
+        alert('Welcome to Cookiefy Shop!');
+    });
+}
 
-// Toggle between dark mode and light mode
-const toggleTheme = () => {
-    document.body.classList.toggle("dark-mode");
-};
+// ==== Dark Mode Toggle ====
+const themeBtn = document.getElementById("theme-toggle");
 
-// Optional: If you want to remember user's choice
+// Check localStorage and apply theme
 window.addEventListener("DOMContentLoaded", () => {
     const isDark = localStorage.getItem("theme") === "dark";
     if (isDark) document.body.classList.add("dark-mode");
 });
 
-const themeBtn = document.getElementById("theme-toggle");
-
+// Toggle theme and save preference
 if (themeBtn) {
     themeBtn.addEventListener("click", () => {
         document.body.classList.toggle("dark-mode");
@@ -25,7 +27,7 @@ if (themeBtn) {
     });
 }
 
-// Get appropriate greeting based on time of day
+// ==== Dynamic Greeting Message ====
 function getGreeting() {
     const hour = new Date().getHours();
     if (hour < 12) return '🌅 Good morning';
@@ -33,11 +35,9 @@ function getGreeting() {
     return '🌙 Good evening';
 }
 
-// Create welcome container
 const welcomeMsg = document.createElement('div');
 welcomeMsg.textContent = getGreeting();
 
-// Apply modern styling
 Object.assign(welcomeMsg.style, {
     position: 'fixed',
     top: '20px',
@@ -57,16 +57,13 @@ Object.assign(welcomeMsg.style, {
     pointerEvents: 'none'
 });
 
-// Add to page
 document.body.appendChild(welcomeMsg);
 
-// Animate in
 setTimeout(() => {
     welcomeMsg.style.opacity = '1';
     welcomeMsg.style.transform = 'translateY(0)';
 }, 300);
 
-// Fade out and remove after 6 seconds
 setTimeout(() => {
     welcomeMsg.style.opacity = '0';
     welcomeMsg.style.transform = 'translateY(-20px)';
@@ -76,34 +73,19 @@ setTimeout(() => {
     welcomeMsg.remove();
 }, 7200);
 
+// ==== Contact Form Validation ====
 const inputs = document.querySelectorAll('input[type="text"]');
 
-// Prevent numbers from being typed
 inputs.forEach(input => {
-  input.addEventListener('input', (e) => {
-    // Replace any digits with an empty string
-    e.target.value = e.target.value.replace(/[0-9]/g, '');
-    
-    // Add or remove active class
-    if (e.target.value.trim() !== "") {
-      input.classList.add('active-input');
-    } else {
-      input.classList.remove('active-input');
-    }
-  });
+    input.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/[0-9]/g, '');
+
+        if (e.target.value.trim() !== "") {
+            input.classList.add('active-input');
+        } else {
+            input.classList.remove('active-input');
+        }
+    });
 });
 
-// Submit button functionality
-document.getElementById('myForm').addEventListener('submit', function(e) {
-  e.preventDefault(); // Prevent page reload
-  const fname = document.getElementById('fname').value.trim();
-  const lname = document.getElementById('lname').value.trim();
-
-  if (fname === "" || lname === "") {
-    alert("Please fill in both names.");
-  } else {
-    alert(`Form submitted!\nFirst name: ${fname}\nLast name: ${lname}`);
-    this.reset(); // Optional: reset form after submission
-    inputs.forEach(input => input.classList.remove('active-input'));
-  }
-});
+const form = d
