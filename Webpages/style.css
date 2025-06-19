@@ -1,61 +1,62 @@
-/* Reset and base styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-    background-color: #fdfaf6; /* Clean off-white dessert vibe */
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-}
-
-.container {
+  }
+  
+  body {
+    background-color: #fdfaf6;
+    color: #333;
+    font-size: 18px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .container {
     width: 90%;
     max-width: 1200px;
     margin: auto;
     padding: 20px 0;
-}
-
-/* Header Styles */
-header {
+  }
+  
+  /* ===============================
+     HEADER & NAVIGATION
+     =============================== */
+  header {
     background-color: #8b4513;
     color: white;
     padding: 20px 0;
-    top: 0;
-    z-index: 999;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
-
-header h1 {
+    z-index: 999;
+    position: relative;
+  }
+  
+  header h1 {
     text-align: center;
     font-size: 2.5rem;
-}
-
-nav ul {
+  }
+  
+  nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
     margin-top: 10px;
-}
-
-/* Styled navigation buttons */
-.nav-btn {
+  }
+  
+  .nav-btn {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    position: relative;
     padding: 8px 14px;
     border-radius: 8px;
-    transition:all 0.3s ease;
-}
-
-.nav-btn::after {
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .nav-btn::after {
     content: '';
     position: absolute;
     bottom: 5px;
@@ -64,244 +65,19 @@ nav ul {
     width: 0;
     background-color: white;
     transition: width 0.4s ease;
-}
-
-.nav-btn:hover {
-    border-color: white;
-}
-
-.nav-btn:hover::after {
-    width: 100%; 
-}
-
-/* Hero Section */
-.hero.no-image {
-    background: linear-gradient(135deg, #f4a261, #e76f51);
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.hero .overlay {
-    background-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  .nav-btn:hover::after {
     width: 100%;
-    height: 100%;
-    padding: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-.hero h2 {
-    font-size: 3rem;
-    color: white;
-    margin-bottom: 10px;
-}
-
-.tagline {
-    color: white;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-.cta-btn {
-    background-color: white;
-    color: #e76f51;
-    padding: 12px 24px;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 30px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.cta-btn:hover {
-    background-color: #e76f51;
-    color: white;
-}
-
-
-/* Sections */
-.section {
-    padding: 40px 0;
-}
-
-.shop-section {
-    padding: 20px;
-}
-
-/* Grid Layout for shop items */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.grid.fade-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Products card styles */
-.card {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 1);
-    overflow: hidden;
-    text-align: center;
-    padding: 20px;
-    transition: transform 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-}
-
-.card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-/* Footer Styles */
-footer {
-    background-color: #8b4513;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    margin-top: 40px;
-    font-size: 0.9rem;
-    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2); 
-    position: relative;
-    z-index: 10;
-}
-
-footer .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 20px;
-}
-
-/* Responsive alignments */
-@media (max-width: 768px) {
-    .hero h2 {
-        font-size: 2rem;
-    }
-
-    nav ul{
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-
-/* Animation on scroll */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-}
-
-.grid.fade-in {
-    animation: fadeInUp 0.8s ease-in-out forwards;
-}
-
-/* h2 Tags fix */
-h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: black;
-    text-align: center;
-    position: relative;
-}
-
-h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background-color: #8b4513;
-    margin: 10px auto 0;
-    border-radius: 2px;
-}
-
-/* Screen Fix for Desktops */
-body {
-    font-size: 18px;
-}
-
-/* Screen Fix for phones */
-
-@media screen and (max-width: 768px) {
-    body {
-        font-size: 16px;
-        padding: 10px;
-    }
-
-    .nav {
-        flex-direction: column;
-    }
-}
-
-/* Dark mode main background and text */
-.dark-mode {
-    background-color: #121212;
-    color: #f5f5f5;
-}
-
-/* Ensure container sections switch too */
-.dark-mode .container,
-.dark-mode .section {
-    background-color: #121212;
-    color: #f5f5f5;
-}
-
-/* Header and footer in dark mode */
-.dark-mode header,
-.dark-mode footer {
-    background-color: #1e1e1e;
-    color: #f5f5f5;
-}
-
-/* Cards (Shop) */
-.dark-mode .card {
-    background-color: #1f1f1f;
-    color: #f5f5f5;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
-}
-
-/* Hero section */
-.dark-mode .hero.no-image {
-    background: linear-gradient(135deg, #1e1e1e, #333);
-}
-
-/* CTA button style in dark mode */
-.dark-mode .cta-btn {
-    background-color: #f5f5f5;
-    color: #1e1e1e;
-}
-
-/* Navigation links */
-.dark-mode .nav-btn {
-    color: #f5f5f5;
-}
-
-.dark-mode .nav-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Toggle Button Styles */
-.toggle-wrapper {
+  }
+  
+  /* ===============================
+     DARK MODE TOGGLE
+     =============================== */
+  .toggle-wrapper {
     position: absolute;
     top: 20px;
     right: 30px;
-    z-index: 1000;
   }
   
   .toggle-label {
@@ -333,81 +109,132 @@ body {
   #theme-toggle:checked + .toggle-label .toggle-ball {
     transform: translateX(30px);
   }
-
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f0f2f5;
-    padding: 40px;
-    color: #333;
+  
+  /* ===============================
+     HERO SECTION (HOMEPAGE)
+     =============================== */
+  .hero.no-image {
+    background: linear-gradient(135deg, #d2b48c, #fff8f0);
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
   
-  h2 {
-    color: #222;
-    font-size: 28px;
+  .hero .overlay {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .hero h2 {
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 10px;
+  }
+  
+  .tagline {
+    color: white;
+    font-size: 1.2rem;
     margin-bottom: 20px;
   }
   
-  form {
-    background-color: #fff;
-    padding: 25px 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
+  .cta-btn {
+    background-color: white;
+    color: #8b4513;
+    padding: 12px 24px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
-  form label {
-    display: block;
-    margin-top: 18px;
-    font-weight: 600;
-    color: #444;
-  }
-  
-  form input[type="text"] {
-    width: 100%;
-    padding: 10px 14px;
-    margin-top: 6px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
-  }
-  
-  form input[type="text"]:focus {
-    border-color: #007bff;
-    background-color: #f9fcff;
-  }
-  
-  .active-input {
-    border-color: #28a745 !important;
-    background-color: #eafff1 !important;
-  }
-  
-  button#submitBtn {
-    margin-top: 20px;
-    width: 100%;
-    padding: 12px;
-    background-color: #007bff;
-    border: none;
+  .cta-btn:hover {
+    background-color: #8b4513;
     color: white;
-    font-size: 16px;
+  }
+  
+  /* ===============================
+     COOKIE FACTS SECTION
+     =============================== */
+  .cookie-facts {
+    text-align: center;
+    padding: 40px 0;
+  }
+  
+  .cookie-facts button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #8b4513;
+    color: white;
+    border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
   }
   
-  button#submitBtn:hover {
-    background-color: #0056b3;
+  .cookie-facts button:hover {
+    background-color: #5c3311;
   }
   
-  p {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #555;
+  /* ===============================
+     SHOP PAGE
+     =============================== */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
   }
   
-  /* Center the contact form and style it responsively */
-.contact-form {
+  .card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-8px);
+  }
+  
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  /* ===============================
+     ABOUT US PAGE
+     =============================== */
+  .about-section {
+    padding: 40px;
+    text-align: center;
+  }
+  
+  .about-section h2 {
+    margin-bottom: 20px;
+  }
+  
+  .about-section p {
+    line-height: 1.6;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  /* ===============================
+     CONTACT US PAGE
+     =============================== */
+  .contact-form {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -418,28 +245,28 @@ body {
     padding: 25px 30px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form label {
+  }
+  
+  .contact-form label {
     margin-top: 18px;
     font-weight: 600;
     color: #444;
-}
-
-.contact-form input[type="text"] {
+  }
+  
+  .contact-form input[type="text"] {
     padding: 10px 14px;
     border: 2px solid #ccc;
     border-radius: 8px;
     font-size: 16px;
     transition: border-color 0.3s ease;
-}
-
-.contact-form input[type="text"]:focus {
+  }
+  
+  .contact-form input[type="text"]:focus {
     border-color: #007bff;
     background-color: #f9fcff;
-}
-
-.contact-form button[type="submit"] {
+  }
+  
+  .contact-form button[type="submit"] {
     margin-top: 20px;
     padding: 12px;
     background-color: #007bff;
@@ -449,15 +276,852 @@ body {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-.contact-form button[type="submit"]:hover {
+  }
+  
+  .contact-form button[type="submit"]:hover {
     background-color: #0056b3;
-}
+  }
+  
+  /* ===============================
+     FOOTER
+     =============================== */
+  footer {
+    background-color: #8b4513;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* ===============================
+     DARK MODE STYLES
+     =============================== */
+  .dark-mode {
+    background-color: #121212;
+    color: #f5f5f5;
+  }
+  
+  .dark-mode header,
+  .dark-mode footer {
+    background-color: #1e1e1e;
+  }
+  
+  .dark-mode .hero.no-image {
+    background: linear-gradient(135deg, #1e1e1e, #333);
+  }
+  
+  .dark-mode .cta-btn {
+    background-color: #f5f5f5;
+    color: #1e1e1e;
+  }
+  
+  .dark-mode .cookie-facts button {
+    background-color: #333;
+    color: #f5f5f5;
+  }
+  
+  .dark-mode .cookie-facts button:hover {
+    background-color: #555;
+  }
+  
+  .dark-mode .card {
+    background-color: #1f1f1f;
+    color: #f5f5f5;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+  }
+  
+  .dark-mode .contact-form {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    border: 1px solid #333;
+  }
+  
+  /* Greeting Popup */
+.greeting-popup {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #8b4513;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    z-index: 9999;
+    pointer-events: none;
+  }
+  
+  .greeting-popup.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Dark mode styling */
+  .dark-mode .greeting-popup {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+  }
+  
+  /* About Us Page Styles */
 
-/* Mobile friendly */
-@media (max-width: 600px) {
-    .contact-form {
-        padding: 20px;
+#about {
+    padding: 60px 0;
+    background-color: #fff8f0; /* Light creamy background for warm feel */
+    color: #4b2e05; /* Dark brown text for good contrast */
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  #about h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #8b4513; /* SaddleBrown */
+    font-weight: 700;
+  }
+  
+  #about h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #5c3311;
+    font-weight: 600;
+    border-bottom: 2px solid #8b4513;
+    padding-bottom: 5px;
+  }
+  
+  #about p {
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    text-align: center;
+    color: #5c3311;
+  }
+  
+  #about ul {
+    max-width: 600px;
+    margin: 0 auto;
+    padding-left: 20px;
+    list-style-type: disc;
+    color: #5c3311;
+  }
+  
+  #about ul li {
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    #about {
+      padding: 40px 20px;
     }
-}
+  
+    #about h2 {
+      font-size: 2rem;
+    }
+  
+    #about h3 {
+      font-size: 1.5rem;
+    }
+  
+    #about p,
+    #about ul {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Shop Page Specific Styles */
+
+.shop-section {
+    background-color: #fff8f0;
+    padding: 60px 20px;
+  }
+  
+  .shop-section h2 {
+    text-align: center;
+    color: #8b4513;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-weight: 700;
+  }
+  
+  /* Grid for shop items */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .grid.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Product Cards */
+  .card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-8px);
+  }
+  
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .card h3 {
+    font-size: 1.5rem;
+    color: #5c3311;
+    margin-top: 15px;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    color: #333;
+    margin-top: 10px;
+  }
+  
+  /* Dark Mode Support for Shop */
+  .dark-mode .shop-section {
+    background-color: #121212;
+    color: #f5f5f5;
+  }
+  
+  .dark-mode .card {
+    background-color: #1f1f1f;
+    color: #f5f5f5;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+  }
+  
+  .dark-mode .card p {
+    color: #d3d3d3;
+  }
+  
+  .dark-mode .card h3 {
+    color: #f0e2d0;
+  }
+  
+  /* Baking Tips Section Styles */
+
+.baking-tips-section {
+    background-color: #fffdf9;
+    padding: 60px 20px;
+  }
+  
+  .baking-tips-section h2 {
+    text-align: center;
+    color: #8b4513;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+  
+  .baking-tips-section .tip {
+    margin-bottom: 40px;
+    background-color: white;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease;
+  }
+  
+  .baking-tips-section .tip:hover {
+    transform: translateY(-5px);
+  }
+  
+  .baking-tips-section .tip h3 {
+    color: #5c3311;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .baking-tips-section .tip p {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  /* Dark Mode for Tips Section */
+  .dark-mode .baking-tips-section {
+    background-color: #121212;
+  }
+  
+  .dark-mode .baking-tips-section .tip {
+    background-color: #1f1f1f;
+    color: #f5f5f5;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+  }
+  
+  .dark-mode .baking-tips-section .tip h3 {
+    color: #f0e2d0;
+  }
+  
+  .dark-mode .baking-tips-section .tip p {
+    color: #e0e0e0;
+  }
+  
+  /* Contact Page Styles */
+
+.contact-section {
+    padding: 60px 20px;
+    background-color: #fffdf9;
+  }
+  
+  .contact-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #8b4513;
+    margin-bottom: 20px;
+  }
+  
+  .contact-section .intro-text {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .contact-form {
+    max-width: 500px;
+    margin: 0 auto 50px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  
+  .contact-form label {
+    display: block;
+    margin-top: 20px;
+    font-weight: 600;
+    color: #444;
+  }
+  
+  .contact-form input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  
+  .contact-form input[type="text"]:focus {
+    border-color: #8b4513;
+    background-color: #fffaf4;
+  }
+  
+  .contact-form button {
+    margin-top: 25px;
+    width: 100%;
+    padding: 14px;
+    background-color: #8b4513;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-form button:hover {
+    background-color: #5c3311;
+  }
+  
+  .contact-details {
+    text-align: center;
+    color: #444;
+  }
+  
+  .contact-details h3 {
+    margin-top: 30px;
+    font-size: 1.4rem;
+    color: #8b4513;
+  }
+  
+  .contact-details p {
+    margin: 6px 0;
+  }
+  
+  .contact-details a {
+    color: #8b4513;
+    text-decoration: underline;
+  }
+  
+  /* Dark Mode Support */
+  .dark-mode .contact-section {
+    background-color: #121212;
+    color: #f5f5f5;
+  }
+  
+  .dark-mode .contact-form {
+    background-color: #1f1f1f;
+    color: #f5f5f5;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
+  }
+  
+  .dark-mode .contact-form input[type="text"] {
+    background-color: #2a2a2a;
+    border-color: #444;
+    color: #f5f5f5;
+  }
+  
+  .dark-mode .contact-form input[type="text"]:focus {
+    border-color: #8b4513;
+    background-color: #222;
+  }
+  
+  .dark-mode .contact-form button {
+    background-color: #f5f5f5;
+    color: #1e1e1e;
+  }
+  
+  .dark-mode .contact-form button:hover {
+    background-color: #ddd;
+  }
+  
+  .dark-mode .contact-details h3,
+  .dark-mode .contact-details p,
+  .dark-mode .contact-details a {
+    color: #f5f5f5;
+  }
+  
+  .reactions {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 2px solid #ddd;
+  }
+  
+  .reaction-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .reaction {
+    font-size: 1.5rem;
+    padding: 10px 16px;
+    border: none;
+    background-color: #fdfaf6;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+  }
+  
+  .reaction span {
+    margin-left: 5px;
+    font-weight: bold;
+  }
+  
+  .reaction:hover {
+    transform: scale(1.1);
+    background-color: #eaddcf;
+  }
+  
+  .reaction.reacted {
+    transform: scale(1.2);
+    background-color: #caa77f;
+  }
+  
+  /* Dark mode support */
+  .dark-mode .reactions {
+    border-top: 2px solid #444;
+  }
+  
+  .dark-mode .reaction {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+  }
+  
+  .dark-mode .reaction:hover {
+    background-color: #333;
+  }
+  
+  .random-tip-box {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  #randomTipBtn {
+    background-color: #8b4513;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  #randomTipBtn:hover {
+    background-color: #5c3311;
+  }
+  
+  #randomTipText {
+    margin-top: 15px;
+    font-style: italic;
+    color: #333;
+  }
+  
+  input.error {
+    border-color: #e74c3c;
+    background-color: #fceae9;
+  }
+  
+/* Cart Icon in Header */
+#cart-icon {
+    position: fixed;
+    top: 25px;
+    right: 30px;
+    background-color: #8b4513;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 1000;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  #cart-count {
+    background-color: #fff;
+    color: #8b4513;
+    padding: 3px 8px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+  
+  /* Cart Modal Styles */
+  .modal.cart-content {
+    max-width: 500px;
+    text-align: center;
+  }
+  
+  .cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 15px 0;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+  }
+  
+  .cart-item-img {
+    width: 80px;
+    border-radius: 10px;
+  }
+  
+  .cart-item-info {
+    flex-grow: 1;
+    text-align: left;
+  }
+  
+  .qty-btn {
+    background-color: #8b4513;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin: 0 5px;
+    user-select: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .qty-btn:hover {
+    background-color: #5c3311;
+  }
+  
+  .remove-btn {
+    background-color: #cc3300;
+    border: none;
+    color: white;
+    padding: 5px 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 8px;
+    font-weight: bold;
+    user-select: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .remove-btn:hover {
+    background-color: #992600;
+  }
+  
+  #cart-total {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-top: 20px;
+  }
+  
+  #checkout-btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #8b4513;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #checkout-btn:hover {
+    background-color: #5c3311;
+  }
+  
+  /* Add to Cart Buttons */
+.add-to-cart-btn {
+    background-color: #8b4513; /* rich brown */
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(139, 69, 19, 0.3);
+    display: inline-block;
+    margin-top: 10px;
+  }
+  
+  .add-to-cart-btn:hover {
+    background-color: #5c3311; /* darker brown */
+    box-shadow: 0 6px 12px rgba(92, 51, 17, 0.6);
+  }
+  
+  /* Cart Modal Background Overlay */
+  #cart-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+    overflow-y: auto;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Hide modal by default */
+  #cart-modal.hidden {
+    display: none;
+  }
+  
+  /* Cart Modal Content */
+  .cart-content {
+    background-color: #fdfaf6;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(139, 69, 19, 0.4);
+    padding: 30px 40px;
+    position: relative;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Dark Mode Cart Modal */
+  .dark-mode .cart-content {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Close Button */
+  #close-cart {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    color: #8b4513;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  #close-cart:hover {
+    color: #5c3311;
+  }
+  
+  /* Cart Items Container */
+  #cart-items {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 25px;
+  }
+  
+  /* Individual Cart Item */
+  .cart-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+  }
+  
+  .cart-item-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(139, 69, 19, 0.2);
+  }
+  
+  /* Info about each cart item */
+  .cart-item-info {
+    flex-grow: 1;
+  }
+  
+  .cart-item-info h4 {
+    margin-bottom: 6px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #8b4513;
+  }
+  
+  /* Price and quantity styling */
+  .cart-item-info p {
+    margin: 4px 0;
+    font-size: 0.9rem;
+    color: #5c3311;
+  }
+  
+  /* Quantity buttons */
+  .qty-btn {
+    background-color: #8b4513;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .qty-btn:hover {
+    background-color: #5c3311;
+  }
+  
+  /* Remove button */
+  .remove-btn {
+    background-color: #c44a4a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 8px;
+  }
+  
+  .remove-btn:hover {
+    background-color: #912f2f;
+  }
+  
+  /* Cart Total */
+  #cart-total {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: right;
+    margin-bottom: 20px;
+    color: #8b4513;
+  }
+  
+  /* Dark mode total color */
+  .dark-mode #cart-total {
+    color: #f5f5f5;
+  }
+  
+  /* Checkout Button */
+  #checkout-btn {
+    display: block;
+    width: 100%;
+    background-color: #8b4513;
+    color: white;
+    font-weight: 700;
+    padding: 15px 0;
+    border: none;
+    border-radius: 40px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(139, 69, 19, 0.5);
+    transition: background-color 0.3s ease;
+  }
+  
+  #checkout-btn:hover {
+    background-color: #5c3311;
+  }
+  
+  /* Dark mode checkout button */
+  .dark-mode #checkout-btn {
+    background-color: #f5f5f5;
+    color: #1e1e1e;
+  }
+  
+  .dark-mode #checkout-btn:hover {
+    background-color: #d4d4d4;
+  }
+  
+  /* Scrollbar for cart items */
+  #cart-items::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  #cart-items::-webkit-scrollbar-thumb {
+    background-color: #8b4513;
+    border-radius: 8px;
+  }
+  
+  /* Responsive tweaks */
+  @media (max-width: 480px) {
+    .cart-item {
+      flex-direction: column;
+      align-items: center;
+    }
+    .cart-item-img {
+      width: 100%;
+      max-width: 180px;
+      height: auto;
+    }
+    .cart-item-info {
+      text-align: center;
+    }
+  }
+  

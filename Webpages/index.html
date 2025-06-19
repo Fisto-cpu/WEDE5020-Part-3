@@ -1,91 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookiefy | Baked With Love, Sprinkled With Magic</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cookiefy</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Cookie Facts Slider -->
-    <div id="cookieSlider">
-        <div id="cookieFacts">
-            <p id="factText">Cookie Fact: Chocolate chip cookies were invented by accident!</p>
-            <button onclick="nextFact()" aria-label="Show next cookie fact">Next Fact</button>
+  <header>
+    <div class="container">
+      <h1>Cookiefy</h1>
+      <nav>
+        <div class="toggle-wrapper">
+          <input type="checkbox" id="theme-toggle" />
+          <label for="theme-toggle" class="toggle-label">
+            <span class="toggle-ball"></span>
+          </label>
         </div>
-        <div id="toggleBtn" onclick="toggleSlider()" role="button" aria-label="Toggle cookie facts slider">
-            <span role="img" aria-label="cookie">🍪</span>
-        </div>
+        <ul>
+          <li><a class="nav-btn" href="index.html">Home</a></li>
+          <li><a class="nav-btn" href="shop.html">Shop</a></li>
+          <li><a class="nav-btn" href="aboutus.html">About Us</a></li>
+          <li><a class="nav-btn" href="BakingTips.html">Baking Tips</a></li>
+          <li><a class="nav-btn" href="Contactus.html">Contact Us</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <!-- Header with Navigation -->
-    <header>
-        <div class="container">
-            <h1>Cookiefy</h1>
-            <nav>
-                <div class="toggle-wrapper">
-                    <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode" />
-                    <label for="theme-toggle" class="toggle-label">
-                        <span class="toggle-ball"></span>
-                    </label>
-                </div>
-                <ul>
-                    <li><a class="nav-btn" href="index.html">Home</a></li>
-                    <li><a class="nav-btn" href="shop.html">Shop</a></li>
-                    <li><a class="nav-btn" href="aboutus.html">About Us</a></li>
-                    <li><a class="nav-btn" href="BakingTips.html">Baking Tips</a></li>
-                    <li><a class="nav-btn" href="Contactus.html">Contact Us</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <section class="hero no-image">
+    <div class="overlay">
+      <div class="container">
+        <h2>Warmly Baked Joy in Every Bite</h2>
+        <p class="tagline">Baked with love, sprinkled with magic</p>
+        <a href="shop.html" class="cta-btn">Shop Now</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- Hero Section -->
-    <section class="hero no-image">
-        <div class="overlay">
-            <div class="container">
-                <h2>Warmly Baked Joy in Every Bite</h2>
-                <p class="tagline">Baked with love, sprinkled with magic</p>
-                <a href="shop.html" class="cta-btn">Shop Now</a>
-            </div>
-        </div>
-    </section>
+  <section class="cookie-facts">
+    <div class="container">
+      <p id="factText">🍪 Cookie Fact: Chocolate chip cookies were invented by accident!</p>
+      <button onclick="nextFact()">Next Fact</button>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Cookiefy. All rights reserved</p>
-        </div>
-    </footer>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Cookiefy. All rights reserved</p>
+    </div>
+  </footer>
 
-    <script src="script.js"></script>
-    <script>
-        const cookieFacts = [
-            "Chocolate chip cookies were invented by accident.",
-            "The first cookies were used to test oven temperature.",
-            "Oreo is the best-selling cookie in the world.",
-            "Cookies date back to 7th century Persia.",
-            // ... (rest of the facts)
-        ];
-
-        let factIndex = 0;
-
-        function nextFact() {
-            factIndex = (factIndex + 1) % cookieFacts.length;
-            const factText = document.getElementById("factText");
-            factText.classList.remove("fade");
-            void factText.offsetWidth; // Trigger reflow for animation
-            factText.classList.add("fade");
-            factText.textContent = "Cookie Fact: " + cookieFacts[factIndex];
-        }
-
-        function toggleSlider() {
-            document.getElementById("cookieSlider").classList.toggle("open");
-        }
-
-        document.getElementById("theme-toggle").addEventListener("change", () => {
-            document.body.classList.toggle("dark-mode");
-        });
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>

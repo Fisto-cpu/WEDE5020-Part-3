@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-      <!--Link to external CSS file-->
-      <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Cookiefy</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <section id="contact" class="section">
-        <div class="container">
-          <h2>Contact Us</h2>
-          <p>We would love to hear from you, Contact us using the details below.</p>
-          <br>
-          <form id="myForm" class="contact-form">
-            <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname" placeholder="Enter first name"><br>
-            
-            <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname" placeholder="Enter last name"><br>
-            
-            <button type="submit" id="submitBtn">Submit</button>
-          </form>
-          <br>
-      
-          <h3>Our Location</h3>
-          <p>123 Tumi Street, Faone Town , St 7628</p>
-          <br>
-          <h3>Phone Numbers</h3>
-          <p>Main: (+27) 76 183 7368</p>
-          <p>Support: (+27) 71 928 0298</p>
-          <br>
-          <h3>Email</h3>
-          <p>General Inquiries: info@cookiefy.com</p>
-        </div>
-      </section>
-      <script src="script.js"></script>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p class="intro-text">We’d love to hear from you. Reach out using the form or details below.</p>
+
+      <form id="myForm" class="contact-form">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="fname" placeholder="Enter first name" required />
+
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lname" placeholder="Enter last name" required />
+
+        <button type="submit" id="submitBtn">Submit</button>
+      </form>
+
+      <div class="contact-details">
+        <h3>Our Location</h3>
+        <p>123 Tumi Street, Faone Town, ST 7628</p>
+
+        <h3>Phone Numbers</h3>
+        <p>Main: (+27) 76 183 7368</p>
+        <p>Support: (+27) 71 928 0298</p>
+
+        <h3>Email</h3>
+        <p>General Inquiries: <a href="mailto:info@cookiefy.com">info@cookiefy.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Cookiefy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

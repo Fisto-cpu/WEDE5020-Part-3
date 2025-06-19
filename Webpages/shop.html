@@ -1,37 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Shop</title>
-    <!--Link to external CSS file-->
-    <link rel="stylesheet" href="style.css">
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-     <!--Shop section displaying cookie products-->
-     <section id="shop" class="section shop-section">
+    <!-- Header with Cart Icon -->
+    <header>
         <div class="container">
-        <h2>Our shop</h2>
-        <div class="grid fade-in">
-            <div class="card">
-                <img src="images/Chocolate.jpg" alt="Chocolate Chip Cookie">
-                <h3>Chocolate Chip</h3>
-                <p>Classic goodness in every bite</p>
+            <h1>Cookiefy</h1>
+            <nav>
+                <ul>
+                    <li><a class="nav-btn" href="index.html">Home</a></li>
+                    <li><a class="nav-btn" href="shop.html">Shop</a></li>
+                    <li><a class="nav-btn" href="aboutus.html">About Us</a></li>
+                    <li><a class="nav-btn" href="BakingTips.html">Baking Tips</a></li>
+                    <li><a class="nav-btn" href="Contactus.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div id="cart-icon" title="View Cart">
+                🛒 <span id="cart-count">0</span>
             </div>
-            <div class="card">
-            <img src="images/oatmeal.jpg" alt="Oatmeal Cookie">
-            <h3>Oatmeal Raisin</h3>
-            <p>Wholesome and hearty delight</p>
         </div>
-        <div class="card">
-        <img src="images/download.jfif" alt="Peanut Butter Cookie">
-        <h3>Peanut Butter</h3>
-        <p>Rich, nutty and unforgettable</p>
-    </div>
-    </div>
-</div>
+    </header>
+
+    <!-- Shop Section displaying cookie products -->
+    <section id="shop" class="section shop-section">
+        <div class="container">
+            <h2>Our Shop</h2>
+            <div class="grid fade-in">
+                <div class="card">
+                    <img src="images/Chocolate.jpg" alt="Chocolate Chip Cookie" />
+                    <h3>Chocolate Chip</h3>
+                    <p>Classic goodness in every bite</p>
+                    <button class="add-to-cart-btn" data-name="Chocolate Chip" data-price="15" data-img="images/Chocolate.jpg">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img src="images/oatmeal.jpg" alt="Oatmeal Cookie" />
+                    <h3>Oatmeal Raisin</h3>
+                    <p>Wholesome and hearty delight</p>
+                    <button class="add-to-cart-btn" data-name="Oatmeal Raisin" data-price="12" data-img="images/oatmeal.jpg">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img src="images/download.jfif" alt="Peanut Butter Cookie" />
+                    <h3>Peanut Butter</h3>
+                    <p>Rich, nutty and unforgettable</p>
+                    <button class="add-to-cart-btn" data-name="Peanut Butter" data-price="14" data-img="images/download.jfif">Add to Cart</button>
+                </div>
+            </div>
+        </div>
     </section>
-</section>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal hidden">
+        <div class="modal-content cart-content">
+            <span id="close-cart" class="close-btn">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <div id="cart-total"></div>
+            <button id="checkout-btn">Checkout</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

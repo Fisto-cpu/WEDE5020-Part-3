@@ -1,37 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baking Tips</title>
-    <!--Link to external CSS file-->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Baking Tips - Cookiefy</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!--Baking Tips section-->
-    <section id="tips" class="section">
-        <div class="container">
-        <h2>Baking Tips</h2>
-        <h3>1.Butter your cream.</h3>
-        <p>When creaming the butter, add air to the mix, which will help your cookies to puff up and rise when heated in the oven.</p>
-        <br>
-        <h3>2.Select the correct pan liner</h3>
-        <p>The pan and liner you utilize affects the visual and feel of your cookies.</p>
-        <br>
-        <h3>3.Insert one egg at once</h3>
-        <p>Add eggs slowly into the butter to inhibit the butter from breaking.</p>
-        <br>
-        <h3>4.Take measures with caution</h3>
-        <p>Mismeasuring your ingridients might lead to a disaster.</p>
-    </div>
-</section>
 
-<!--Footer with copyright-->
-<footer>
+  <!-- Baking Tips Section -->
+  <section id="tips" class="section baking-tips-section">
     <div class="container">
-        <p>&copy; 2025 Cookiefy. All rights reserved</p>
+      <h2>Baking Tips</h2>
+
+      <div class="tip">
+        <h3>1. Butter Your Cream</h3>
+        <p>When creaming butter, you add air to the mix — this helps cookies puff and rise beautifully when baking.</p>
+      </div>
+
+      <div class="tip">
+        <h3>2. Select the Right Pan Liner</h3>
+        <p>The type of baking pan or liner you use affects the texture and appearance of your cookies.</p>
+      </div>
+
+      <div class="tip">
+        <h3>3. Add One Egg at a Time</h3>
+        <p>Introduce eggs slowly into your batter to prevent the butter mixture from breaking apart.</p>
+      </div>
+
+      <div class="tip">
+        <h3>4. Measure Precisely</h3>
+        <p>Incorrect measurements can ruin your batch. Always use accurate tools for best results.</p>
+      </div>
     </div>
-</footer>
-<script src="script.js"></script>
+  </section>
+  
+  <div class="random-tip-box">
+    <button id="randomTipBtn">Get Random Baking Tip </button>
+    <p id="randomTipText"></p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Cookiefy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
