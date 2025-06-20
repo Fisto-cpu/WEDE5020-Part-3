@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us - Cookiefy</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 </head>
 <body>
-
+  
   <!-- Contact Section -->
   <section id="contact" class="section contact-section">
     <div class="container">
@@ -23,6 +24,10 @@
 
         <button type="submit" id="submitBtn">Submit</button>
       </form>
+
+      <h2>Find Us 🍪</h2>
+
+      <div id="map" style="height: 300px;"></div>
 
       <div class="contact-details">
         <h3>Our Location</h3>
@@ -46,5 +51,7 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
 </body>
 </html>

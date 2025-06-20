@@ -288,3 +288,33 @@ if (checkoutBtn) {
 
 // Initialize cart count on page load
 updateCartCount();
+
+// Wait until DOM is fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+  // Check if the map container exists
+  const mapContainer = document.getElementById("map");
+  if (mapContainer) {
+    // Set the map view (you can change coordinates to your city)
+    const map = L.map("map").setView([-29.8587, 31.0218], 13); // Durban, SA
+
+    // Add OpenStreetMap tiles
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "© OpenStreetMap contributors",
+    }).addTo(map);
+
+    // Add a marker with a popup
+    L.marker([-29.8587, 31.0218])
+      .addTo(map)
+      .bindPopup("Come visit our Cookie HQ 🍪")
+      .openPopup();
+  }
+});
+
+document.querySelectorAll('.accordion-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    button.classList.toggle('active');
+    const content = button.nextElementSibling;
+    content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + 'px';
+  });
+});
+

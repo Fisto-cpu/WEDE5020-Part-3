@@ -1125,3 +1125,50 @@
     }
   }
   
+  .rotating-cookie-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0;
+  }
+  
+  .rotating-cookie {
+    width: 200px;
+    animation: spin 8s linear infinite;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.2));
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .accordion-btn {
+    background-color: #fceac6;
+    border: none;
+    padding: 1rem;
+    width: 100%;
+    text-align: left;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 5px;
+  }
+  
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background: #fff8e1;
+    padding: 0 1rem;
+  }
+  
+  .accordion-btn.active + .accordion-content {
+    max-height: 150px;
+    padding: 1rem;
+  }
+  
+  
