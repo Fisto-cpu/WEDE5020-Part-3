@@ -41,7 +41,7 @@ function nextFact() {
   factIndex = (factIndex + 1) % cookieFacts.length;
   const factTextElem = document.getElementById("factText");
   if (factTextElem) {
-    factTextElem.textContent = `🍪 Cookie Fact: ${cookieFacts[factIndex]}`;
+    factTextElem.textContent = `Cookie Fact: ${cookieFacts[factIndex]}`;
   }
 }
 
@@ -318,3 +318,46 @@ document.querySelectorAll('.accordion-btn').forEach(button => {
   });
 });
 
+function smartSearch() {
+  const input = document.getElementById("searchInput").value.toLowerCase().trim();
+  if (!input) {
+    alert("Please enter a cookie name like chocolate chip.");
+    return;
+  }
+
+  const keywords = ["chocolate", "oatmeal", "vegan", "sugar-free", "gluten-free"];
+  const found = keywords.some(keyword => input.includes(keyword));
+
+  if (found) {
+    alert(`We found cookies related to "${input}" 🍪`);
+    window.location.href = `search.html?q=${encodeURIComponent(input)}`;
+  } else {
+    alert(`No cookies found for "${input}" 😢 Try another type!`);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.location.pathname.endsWith("index.html")) {
+    // SEO Title + Description
+    document.title = "Cookiefy | Search for Your Favorite Cookies";
+    const meta = document.createElement("meta");
+    meta.name = "description";
+    meta.content = "Search for chocolate chip, sugar-free, and oatmeal cookies with Cookiefy.";
+    document.head.appendChild(meta);
+
+    // Accessibility ALT check
+    document.querySelectorAll("img").forEach(img => {
+      if (!img.alt || img.alt.trim() === "") {
+        img.alt = "Delicious cookie";
+      }
+    });
+
+    // Lazy loading for speed
+    document.querySelectorAll("img").forEach(img => img.setAttribute("loading", "lazy"));
+
+    // Clickjacking protection
+    if (window.top !== window.self) {
+      window.top.location = window.location;
+    }
+  }
+});

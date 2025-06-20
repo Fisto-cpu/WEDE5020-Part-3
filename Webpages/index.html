@@ -22,8 +22,13 @@
           <li><a class="nav-btn" href="shop.html">Shop</a></li>
           <li><a class="nav-btn" href="aboutus.html">About Us</a></li>
           <li><a class="nav-btn" href="BakingTips.html">Baking Tips</a></li>
-          <li><a class="nav-btn" href="Contactus.html">Contact Us</a></li>
+          <li><a class="nav-btn" href="Contactus.html">Contact Us</a></li>       
         </ul>
+      <!--  SEO-smart search bar -->
+        <form class="nav-search" role="search" aria-label="Cookie search form" onsubmit="event.preventDefault(); smartSearch();">
+          <input type="search" id="searchInput" name="q" placeholder="Search cookies..." aria-label="Search cookies" />
+          <button type="submit" aria-label="Submit Search">🔍</button>
+        </form>
       </nav>
     </div>
   </header>
