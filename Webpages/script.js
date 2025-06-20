@@ -1,31 +1,31 @@
-console.log("Cookiefy script loaded!");
 
+console.log("🍪 Cookiefy script loaded!");
+
+// Wait for DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", () => {
-  // ===================== THEME TOGGLE =====================
-  const themeToggle = document.getElementById("theme-toggle");
-  const savedTheme = localStorage.getItem("theme");
 
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark-mode");
+  // ===================== DARK MODE TOGGLE =====================
+  const themeToggle = document.getElementById("theme-toggle");
+  const body = document.body;
+
+  if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark-mode");
     if (themeToggle) themeToggle.checked = true;
   }
 
   if (themeToggle) {
     themeToggle.addEventListener("change", () => {
-      document.body.classList.toggle("dark-mode");
-      localStorage.setItem(
-        "theme",
-        document.body.classList.contains("dark-mode") ? "dark" : "light"
-      );
+      body.classList.toggle("dark-mode");
+      localStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
     });
   }
 
   // ===================== GREETING POPUP =====================
   function getGreeting() {
     const hour = new Date().getHours();
-    if (hour < 12) return "🌅 Good morning";
-    if (hour < 18) return "☀️ Good afternoon";
-    return "🌙 Good evening";
+    if (hour < 12) return "🌅 Good morning, Cookie Lover!";
+    if (hour < 18) return "☀️ Good afternoon, Sweet Tooth!";
+    return "🌙 Good evening, Dessert Dreamer!";
   }
 
   function showGreetingPopup() {
@@ -40,28 +40,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showGreetingPopup();
 
-  // ===================== COOKIE FACT SLIDER =====================
-  const cookieFacts = [
-    "Chocolate chip cookies were invented by accident.",
-    "The first cookies were used to test oven temperature.",
-    "Oreo is the best-selling cookie in the world.",
-    "Cookies date back to 7th century Persia.",
-    "The word 'cookie' comes from the Dutch word 'koekje'.",
-    "Fortune cookies originated in the United States.",
-    "Girl Scouts began selling cookies in 1917.",
-    "The Cookie Monster first appeared in 1969.",
-    "Cookies were included in WWII care packages.",
-    "Brown sugar makes cookies chewier than white sugar."
-  ];
+  // ===================== ROTATING COOKIE ANIMATION =====================
+  const rotatingCookie = document.querySelector(".rotating-cookie");
+  if (rotatingCookie) {
+    rotatingCookie.style.animation = "spin 8s linear infinite";
+  }
 
-  let factIndex = 0;
-  window.nextFact = function () {
-    factIndex = (factIndex + 1) % cookieFacts.length;
-    const factText = document.getElementById("factText");
-    if (factText) factText.textContent = `🍪 Cookie Fact: ${cookieFacts[factIndex]}`;
-  };
+  // ===================== SCROLL SMOOTHING =====================
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
 
-  // ===================== REACTION BUTTONS =====================
+  // ===================== EMOJI REACTIONS (BAKING TIPS) =====================
   document.querySelectorAll(".reaction").forEach(button => {
     button.addEventListener("click", () => {
       const span = button.querySelector("span");
@@ -73,118 +69,138 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ===================== RANDOM BAKING TIP =====================
-  const tips = [
-    "Always preheat your oven before baking.",
-    "Use room temperature ingredients for better mixing.",
-    "Don't overmix your cookie dough.",
-    "Chill dough before baking for thicker cookies.",
-    "Use parchment paper for even baking.",
-    "Weigh your ingredients for accuracy.",
-    "Let cookies cool on the pan for a few minutes before transferring.",
-    "Sift dry ingredients for a lighter texture.",
-    "Use an oven thermometer to check true temp."
-  ];
-
-  const tipBtn = document.getElementById("randomTipBtn");
-  const tipText = document.getElementById("randomTipText");
-
-  if (tipBtn && tipText) {
-    tipBtn.addEventListener("click", () => {
-      const index = Math.floor(Math.random() * tips.length);
-      tipText.textContent = tips[index];
-    });
-  }
-
   // ===================== SMART SEARCH BAR =====================
-  window.smartSearch = function () {
-    const input = document.getElementById("searchInput").value.toLowerCase().trim();
-    if (!input) {
-      alert("Please enter a cookie name like chocolate chip.");
-      return;
-    }
+  const searchInput = document.getElementById("searchInput");
+  const searchButton = document.getElementById("searchBtn");
 
-    const keywords = ["chocolate", "oatmeal", "vegan", "sugar-free", "gluten-free"];
-    const match = keywords.some(k => input.includes(k));
+  if (searchButton && searchInput) {
+    searchButton.addEventListener("click", () => {
+      const value = searchInput.value.toLowerCase().trim();
+      if (!value) return alert("Please type a cookie name to search.");
 
-    if (match) {
-      alert(`We found cookies related to "${input}" 🍪`);
-      window.location.href = `search.html?q=${encodeURIComponent(input)}`;
-    } else {
-      alert(`No cookies found for "${input}" 😢 Try another type!`);
-    }
-  };
+      const keywords = ["chocolate", "sugar", "vegan", "oatmeal", "gluten"];
+      const match = keywords.some(word => value.includes(word));
 
-  // ===================== CONTACT FORM VALIDATION =====================
-  const contactForm = document.getElementById("contactForm");
-  const feedback = document.getElementById("formFeedback");
-
-  if (contactForm && feedback) {
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      feedback.innerHTML = "";
-
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const subject = document.getElementById("subject").value.trim();
-      const message = document.getElementById("message").value.trim();
-
-      let errors = [];
-
-      if (!/^[A-Za-z\s]+$/.test(name)) errors.push("❌ Name should contain letters only.");
-      if (!/^\S+@\S+\.\S+$/.test(email)) errors.push("❌ Enter a valid email address.");
-      if (subject.length < 3) errors.push("❌ Subject must be at least 3 characters.");
-      if (message.length < 10) errors.push("❌ Message should be at least 10 characters.");
-
-      if (errors.length > 0) {
-        feedback.innerHTML = errors.map(err => `<p style="color:red;">${err}</p>`).join("");
+      if (match) {
+        alert(`🍪 Searching for: "${value}"`);
+        window.location.href = `search.html?q=${encodeURIComponent(value)}`;
       } else {
-        feedback.innerHTML = `<p style="color:green;">✅ Message valid. Submitting...</p>`;
-        contactForm.reset();
-        setTimeout(() => {
-          feedback.innerHTML += `<p style="color:blue;">📬 Message sent successfully!</p>`;
-        }, 1000);
+        alert("❌ No matching cookies found. Try another keyword.");
       }
     });
   }
 
-  // ===================== INTERACTIVE MAP =====================
+  // ===================== ADD TO CART =====================
+  let cart = [];
+
+  document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const name = btn.dataset.name;
+      const price = parseFloat(btn.dataset.price);
+
+      const item = cart.find(i => i.name === name);
+      if (item) {
+        item.quantity++;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
+
+      updateCartDisplay();
+    });
+  });
+
+  function updateCartDisplay() {
+    const cartList = document.getElementById("cart-items");
+    const totalDisplay = document.getElementById("cart-total");
+    const cartCount = document.getElementById("cart-count");
+
+    if (!cartList || !totalDisplay || !cartCount) return;
+
+    cartList.innerHTML = "";
+    let total = 0;
+
+    cart.forEach(item => {
+      const itemTotal = item.price * item.quantity;
+      total += itemTotal;
+
+      const li = document.createElement("li");
+      li.textContent = `${item.name} × ${item.quantity} — R${itemTotal.toFixed(2)}`;
+      cartList.appendChild(li);
+    });
+
+    totalDisplay.textContent = total.toFixed(2);
+    cartCount.textContent = cart.reduce((sum, i) => sum + i.quantity, 0);
+  }
+});
+
+// ========== FORM VALIDATION SCRIPT ==========
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("myForm");
+
+  // Create a feedback message container if it doesn't exist
+  let feedback = document.createElement("div");
+  feedback.id = "formFeedback";
+  form.appendChild(feedback);
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); 
+    feedback.innerHTML = ""; 
+
+    const fname = document.getElementById("fname").value.trim();
+    const lname = document.getElementById("lname").value.trim();
+
+    let errors = [];
+
+    // Name validation: must be letters only
+    if (!/^[A-Za-z\s]+$/.test(fname)) {
+      errors.push("❌ First name must contain only letters.");
+    }
+
+    if (!/^[A-Za-z\s]+$/.test(lname)) {
+      errors.push("❌ Last name must contain only letters.");
+    }
+
+    // Check if fields are empty
+    if (!fname || !lname) {
+      errors.push("❌ Please fill in all the fields.");
+    }
+
+    // Display errors or success message
+    if (errors.length > 0) {
+      errors.forEach(err => {
+        const p = document.createElement("p");
+        p.textContent = err;
+        p.style.color = "red";
+        p.style.marginTop = "6px";
+        feedback.appendChild(p);
+      });
+    } else {
+      const success = document.createElement("p");
+      success.textContent = "✅ Form submitted successfully!";
+      success.style.color = "green";
+      success.style.marginTop = "6px";
+      feedback.appendChild(success);
+
+      form.reset(); 
+    }
+  });
+});
+
+// ========== INTERACTIVE MAP DISPLAY ==========
+document.addEventListener("DOMContentLoaded", () => {
   const mapContainer = document.getElementById("map");
-  if (mapContainer && window.L) {
-    const map = L.map("map").setView([-29.8587, 31.0218], 13);
+
+  // Only run if the map container exists on this page
+  if (mapContainer && typeof L !== "undefined") {
+    const map = L.map("map").setView([-29.8587, 31.0218], 13); // Durban as default
+
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "© OpenStreetMap contributors"
     }).addTo(map);
 
     L.marker([-29.8587, 31.0218])
       .addTo(map)
-      .bindPopup("Come visit our Cookie HQ 🍪")
+      .bindPopup("We're baking magic here! 🍪")
       .openPopup();
-  }
-
-  // ===================== ACCORDION TOGGLE =====================
-  document.querySelectorAll(".accordion-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      btn.classList.toggle("active");
-      const panel = btn.nextElementSibling;
-      panel.style.maxHeight = panel.style.maxHeight ? null : panel.scrollHeight + "px";
-    });
-  });
-
-  // ===================== SEO ENHANCEMENTS ON HOMEPAGE =====================
-  if (window.location.pathname.includes("index.html")) {
-    document.title = "Cookiefy | Search for Your Favorite Cookies";
-
-    const meta = document.createElement("meta");
-    meta.name = "description";
-    meta.content = "Search for chocolate chip, sugar-free, and oatmeal cookies with Cookiefy.";
-    document.head.appendChild(meta);
-
-    document.querySelectorAll("img").forEach(img => {
-      if (!img.alt) img.alt = "Delicious cookie";
-      img.setAttribute("loading", "lazy");
-    });
-
-    if (window.top !== window.self) window.top.location = window.location;
   }
 });
