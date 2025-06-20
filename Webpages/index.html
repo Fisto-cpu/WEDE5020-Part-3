@@ -2,29 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cookiefy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cookiefy | Freshly Baked Cookies</title>
+  <meta name="description" content="Warmly baked joy in every bite. Discover handcrafted cookies made with love and premium ingredients at Cookiefy." />
+  <meta name="keywords" content="cookies, chocolate chip, bakery, sugar-free, oatmeal, Cookiefy" />
+  <meta name="author" content="Cookiefy Team" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Header -->
   <header>
     <div class="container">
       <h1>Cookiefy</h1>
       <nav>
+        <!-- Theme Toggle -->
         <div class="toggle-wrapper">
           <input type="checkbox" id="theme-toggle" />
           <label for="theme-toggle" class="toggle-label">
             <span class="toggle-ball"></span>
           </label>
         </div>
+
+        <!-- Navigation -->
         <ul>
           <li><a class="nav-btn" href="index.html">Home</a></li>
           <li><a class="nav-btn" href="shop.html">Shop</a></li>
           <li><a class="nav-btn" href="aboutus.html">About Us</a></li>
           <li><a class="nav-btn" href="BakingTips.html">Baking Tips</a></li>
-          <li><a class="nav-btn" href="Contactus.html">Contact Us</a></li>       
+          <li><a class="nav-btn" href="Contactus.html">Contact Us</a></li>
         </ul>
-      <!--  SEO-smart search bar -->
+
+        <!-- Search Bar -->
         <form class="nav-search" role="search" aria-label="Cookie search form" onsubmit="event.preventDefault(); smartSearch();">
           <input type="search" id="searchInput" name="q" placeholder="Search cookies..." aria-label="Search cookies" />
           <button type="submit" aria-label="Submit Search">🔍</button>
@@ -33,6 +42,7 @@
     </div>
   </header>
 
+  <!-- Hero Section -->
   <section class="hero no-image">
     <div class="overlay">
       <div class="container">
@@ -40,22 +50,27 @@
         <p class="tagline">Baked with love, sprinkled with magic</p>
         <a href="shop.html" class="cta-btn">Shop Now</a>
       </div>
-    </div>  
+    </div>
   </section>
-  <section class="rotating-cookie-wrapper">
-      <img src="images/big-cookie.png" alt="Big Cookie" class="rotating-cookie" />
-    </section>  
 
+  <!-- Rotating Cookie Visual -->
+  <section class="rotating-cookie-wrapper" aria-label="Rotating cookie animation">
+    <img src="images/big-cookie.png" alt="Rotating Chocolate Chip Cookie" class="rotating-cookie" loading="lazy" />
+  </section>
+
+  <!-- Cookie Facts Generator -->
   <section class="cookie-facts">
     <div class="container">
+      <h2>Did You Know?</h2>
       <p id="factText">🍪 Cookie Fact: Chocolate chip cookies were invented by accident!</p>
       <button onclick="nextFact()">Next Fact</button>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
-      <p>&copy; 2025 Cookiefy. All rights reserved</p>
+      <p>&copy; 2025 Cookiefy. All rights reserved.</p>
     </div>
   </footer>
 
